@@ -45,102 +45,112 @@ export default function Home() {
           }}
         />
 
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          {/* Main Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            style={{ opacity: textOpacity, y: textY }}
-          >
-            <h1 className="text-6xl md:text-8xl font-bold text-foreground mb-6 leading-tight text-balance">
-              <motion.span
-                className="inline-block mr-2"
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                Bal
-              </motion.span>
-              <motion.span
-                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent"
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                Niketan
-              </motion.span>
-            </h1>
+       <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
+  {/* Main Title */}
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.9 }}
+    style={{ opacity: textOpacity, y: textY }}
+  >
+    {/* School Name */}
+    <h1 className="text-4xl md:text-7xl font-extrabold leading-tight mb-6">
+      {/* Line 1 */}
+      <motion.span
+        className="block text-foreground tracking-tight pt-10"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
+        Bal Niketan
+      </motion.span>
 
-            <motion.p
-              className="text-xl md:text-2xl text-muted-foreground mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-              Excellence in Education Meets Innovation
-            </motion.p>
+      {/* Line 2 Gradient */}
+      <motion.span
+        className="block bg-gradient-to-r from-primary via-blue-500 to-accent text-transparent bg-clip-text drop-shadow-[0_0_25px_rgba(59,130,246,0.3)]"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.35 }}
+      >
+        Senior Secondary School
+      </motion.span>
 
-            <motion.p
-              className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              Nurturing minds, building futures. A premium educational
-              experience that transforms young learners into visionary leaders.
-            </motion.p>
-          </motion.div>
+      {/* Location */}
+      <motion.span
+        className="block mt-3 text-lg md:text-2xl font-medium text-muted-foreground tracking-wide"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+      >
+        Pilani, Rajasthan
+      </motion.span>
+    </h1>
 
-          {/* CTA Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 20px 40px rgba(45, 90, 140, 0.3)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-primary text-white rounded-lg font-semibold flex items-center gap-2 justify-center"
-            >
-              Explore More <ArrowRight size={20} />
-            </motion.button>
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary/10 transition-colors"
-            >
-              Learn More
-            </motion.button>
-          </motion.div>
+    {/* Tagline */}
+    <motion.p
+      className="text-lg md:text-2xl font-medium text-muted-foreground mb-6"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.6 }}
+    >
+      Excellence in Education • Innovation • Values
+    </motion.p>
 
-          {/* Scroll indicator */}
-          <motion.div
-            className="mt-16"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <div className="flex flex-col items-center gap-2">
-              <p className="text-sm text-muted-foreground">
-                Scroll to discover
-              </p>
-              <div className="w-6 h-10 border-2 border-primary rounded-full flex items-center justify-center">
-                <motion.div
-                  className="w-1 h-2 bg-primary rounded-full"
-                  animate={{ y: [0, 8, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
+    {/* <motion.p
+      className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.7 }}
+    >
+      Nurturing young minds with modern education, strong values, and
+      innovative learning to shape confident and future-ready leaders.
+    </motion.p> */}
+  </motion.div>
+
+  {/* CTA Buttons */}
+  <motion.div
+    className="flex flex-col sm:flex-row gap-5 justify-center"
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.8 }}
+  >
+    {/* Primary Button */}
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="px-10 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
+    >
+      Explore Campus <ArrowRight size={20} />
+    </motion.button>
+
+    {/* Secondary Button */}
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="px-10 py-4 rounded-xl font-semibold border-2 border-primary text-primary hover:bg-primary/10 backdrop-blur-md transition-all duration-300"
+    >
+      Admission Details
+    </motion.button>
+  </motion.div>
+
+  {/* Scroll Indicator */}
+  <motion.div
+    className="mt-16 flex flex-col items-center"
+    animate={{ y: [0, 10, 0] }}
+    transition={{ duration: 2, repeat: Infinity }}
+  >
+    <p className="text-sm text-muted-foreground mb-2">
+      Scroll to explore
+    </p>
+    <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-1">
+      <motion.div
+        className="w-1 h-2 bg-primary rounded-full"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      />
+    </div>
+  </motion.div>
+</div>
 
         {/* Floating shapes */}
         <motion.div
