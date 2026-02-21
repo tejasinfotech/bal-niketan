@@ -32,8 +32,8 @@ export default function Navbar() {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? 'bg-background/95 backdrop-blur-md shadow-lg'
-          : 'bg-background/50 backdrop-blur-sm'
+        ? 'bg-background/95 backdrop-blur-md shadow-lg'
+        : 'bg-background/50 backdrop-blur-sm'
         }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -42,23 +42,31 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
+          {/* Logo */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, scale: 0.85, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="flex-shrink-0"
           >
-            <Link href="/" className="flex items-center">
-              <Image
-                src={logoimg}
-                alt="Bal Niketan Sr. Sec. School"
-                width={160}
-                height={100}
-                priority
-                className="h-40 w-auto "
-              />
-            </Link>
+            <Link href="/" className="flex items-center gap-3 group">
+              {/* Logo Image */}
+              <div className="relative">
+                <Image
+                  src="/logoo2.svg"   // SVG from public folder
+                  alt="Bal Niketan Senior Secondary School"
+                  width={240}
+                  height={240}
+                  priority
+                  quality={90}
+                  className=" transition-transform duration-300 group-hover:scale-105"
+                />
 
+                {/* Glow Effect */}
+              </div>
+
+
+            </Link>
           </motion.div>
 
           {/* Desktop Navigation */}

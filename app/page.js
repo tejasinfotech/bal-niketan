@@ -5,7 +5,18 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ThreeDBackground from "@/components/ThreeDBackground";
-import { ArrowRight, BookOpen, Users, Zap, Target } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  Users,
+  Zap,
+  Target,
+  Trophy,
+  Medal,
+  Star,
+  Award,
+  GraduationCap,
+} from "lucide-react";
 import Image from "next/image";
 export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -30,153 +41,61 @@ export default function Home() {
       <ThreeDBackground />
       {/* <Navbar /> */}
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        {/* Animated background gradient */}
+      <section className="relative min-h-screen flex items-center justify-center px-6 text-center overflow-hidden">
+        {/* Background Glow */}
         <motion.div
           className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent"
-          animate={{
-            backgroundPosition: ["0% 0%", "100% 100%"],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
+          animate={{ opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
 
-       <div className="relative z-10 text-center max-w-5xl mx-auto px-6">
-  {/* Main Title */}
-  <motion.div
-    initial={{ opacity: 0, y: 40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.9 }}
-    style={{ opacity: textOpacity, y: textY }}
-  >
-    {/* School Name */}
-    <h1 className="text-4xl md:text-7xl font-extrabold leading-tight mb-6">
-      {/* Line 1 */}
-      <motion.span
-        className="block text-foreground tracking-tight pt-10"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        Bal Niketan
-      </motion.span>
+        <div className="relative z-10 max-w-4xl">
+          <motion.h1
+            className="text-4xl md:text-7xl font-extrabold leading-tight"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <span className="block">Bal Niketan</span>
 
-      {/* Line 2 Gradient */}
-      <motion.span
-        className="block bg-gradient-to-r from-primary via-blue-500 to-accent text-transparent bg-clip-text drop-shadow-[0_0_25px_rgba(59,130,246,0.3)]"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.35 }}
-      >
-        Senior Secondary School
-      </motion.span>
+            <span className="block bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
+              Sr. Sec. School
+            </span>
 
-      {/* Location */}
-      <motion.span
-        className="block mt-3 text-lg md:text-2xl font-medium text-muted-foreground tracking-wide"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5 }}
-      >
-        Pilani, Rajasthan
-      </motion.span>
-    </h1>
+            {/* Known as */}
+            <span className="block text-lg md:text-2xl mt-3 text-primary font-medium">
+              (Known as Garh School)
+            </span>
 
-    {/* Tagline */}
-    <motion.p
-      className="text-lg md:text-2xl font-medium text-muted-foreground mb-6"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.6 }}
-    >
-      Excellence in Education • Innovation • Values
-    </motion.p>
+            <span className="block text-lg md:text-xl mt-2 text-muted-foreground">
+              Pilani, Rajasthan
+            </span>
+          </motion.h1>
 
-    {/* <motion.p
-      className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.7 }}
-    >
-      Nurturing young minds with modern education, strong values, and
-      innovative learning to shape confident and future-ready leaders.
-    </motion.p> */}
-  </motion.div>
+          <motion.p
+            className="mt-6 text-lg md:text-xl text-muted-foreground"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
+            Excellence in Education • Innovation • Values
+          </motion.p>
 
-  {/* CTA Buttons */}
-  <motion.div
-    className="flex flex-col sm:flex-row gap-5 justify-center"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: 0.8 }}
-  >
-    {/* Primary Button */}
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="px-10 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-primary to-accent shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
-    >
-      Explore Campus <ArrowRight size={20} />
-    </motion.button>
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            <button className="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white text-center rounded-xl font-semibold shadow-lg flex items-center gap-2">
+              Explore Campus <ArrowRight size={20} />
+            </button>
 
-    {/* Secondary Button */}
-    <motion.button
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="px-10 py-4 rounded-xl font-semibold border-2 border-primary text-primary hover:bg-primary/10 backdrop-blur-md transition-all duration-300"
-    >
-      Admission Details
-    </motion.button>
-  </motion.div>
-
-  {/* Scroll Indicator */}
-  <motion.div
-    className="mt-16 flex flex-col items-center"
-    animate={{ y: [0, 10, 0] }}
-    transition={{ duration: 2, repeat: Infinity }}
-  >
-    <p className="text-sm text-muted-foreground mb-2">
-      Scroll to explore
-    </p>
-    <div className="w-6 h-10 border-2 border-primary rounded-full flex items-start justify-center p-1">
-      <motion.div
-        className="w-1 h-2 bg-primary rounded-full"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      />
-    </div>
-  </motion.div>
-</div>
-
-        {/* Floating shapes */}
-        <motion.div
-          className="absolute top-20 right-10 w-72 h-72 bg-primary/5 rounded-full filter blur-3xl"
-          animate={{
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-10 w-96 h-96 bg-accent/5 rounded-full filter blur-3xl"
-          animate={{
-            x: [0, -50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
+            <button className="px-8 py-4 border-2 border-primary text-primary rounded-xl font-semibold hover:bg-primary/10 transition">
+              Admission Details
+            </button>
+          </motion.div>
+        </div>
       </section>
 
       {/* Features Section */}
@@ -190,6 +109,8 @@ export default function Home() {
 
       {/* Statistics Section */}
       <StatisticsSection />
+      <AchievementsSection />
+      <AlumniSection />
 
       {/* CTA Section */}
       <CTASection />
@@ -533,6 +454,95 @@ function CTASection() {
           </motion.button>
         </motion.div>
       </div>
+    </section>
+  );
+}
+
+//////////////////////////////////////////////////////
+// ACHIEVEMENTS
+//////////////////////////////////////////////////////
+
+function AchievementsSection() {
+  const achievements = [
+    { title: "Board Results", value: "98%", icon: Trophy },
+    { title: "Olympiad Winners", value: "150+", icon: Medal },
+    { title: "Sports Champions", value: "80+", icon: Star },
+    { title: "Awards", value: "50+", icon: Award },
+  ];
+
+  return (
+    <section className="py-32 px-6 ">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-6xl font-bold text-center mb-20">
+          Our Achievements
+        </h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {achievements.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={i}
+                whileHover={{ y: -12, scale: 1.05 }}
+                className="p-10 rounded-3xl  bg-white/10 backdrop-blur-xl border  text-center"
+              >
+                <div className="flex justify-center mb-6">
+                  <Icon size={40} className="text-primary" />
+                </div>
+                <h3 className="text-5xl font-extrabold mb-3">{item.value}</h3>
+                <p className="text-xl">{item.title}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+//////////////////////////////////////////////////////
+// ALUMNI SLIDER (INFINITE)
+//////////////////////////////////////////////////////
+
+function AlumniSection() {
+  const alumni = [
+    { name: "Rohit Sharma", role: "IAS", img: "/alumni1.jpg" },
+    { name: "Priya Verma", role: "Google Engineer", img: "/alumni2.jpg" },
+    { name: "Aman Gupta", role: "Entrepreneur", img: "/alumni3.jpg" },
+    { name: "Neha Singh", role: "Doctor", img: "/alumni4.jpg" },
+  ];
+
+  return (
+    <section className="py-24 overflow-hidden bg-gradient-to-r from-primary/5 to-accent/5">
+      <h2 className="text-4xl font-bold text-center mb-12">Our Proud Alumni</h2>
+
+      <motion.div
+        className="flex gap-6"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+      >
+        {[...alumni, ...alumni].map((a, i) => (
+          <div
+            key={i}
+            className="min-w-[260px] p-6 bg-white rounded-2xl shadow-lg text-center"
+          >
+            <div className="relative w-28 h-28 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/30 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+              {" "}
+              <span className="text-2xl font-bold text-primary">
+                {" "}
+                {a.name
+                  .split(" ")
+                  .map((word) => word[0])
+                  .slice(0, 2)
+                  .join("")
+                  .toUpperCase()}{" "}
+              </span>{" "}
+            </div>
+            <h3 className="font-semibold">{a.name}</h3>
+            <p className="text-sm text-muted-foreground">{a.role}</p>
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 }
