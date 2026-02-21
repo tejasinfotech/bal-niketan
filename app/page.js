@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useInView , useAnimation } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ThreeDBackground from "@/components/ThreeDBackground";
@@ -15,7 +15,7 @@ import {
   Medal,
   Star,
   Award,
-  GraduationCap,
+  GraduationCap, ArrowLeft
 } from "lucide-react";
 import Image from "next/image";
 export default function Home() {
@@ -41,62 +41,70 @@ export default function Home() {
       <ThreeDBackground />
       {/* <Navbar /> */}
 
-      <section className="relative min-h-screen flex items-center justify-center px-6 text-center overflow-hidden">
-        {/* Background Glow */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-b from-primary/10 via-transparent to-transparent"
-          animate={{ opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
+    <section className="relative min-h-screen flex items-center justify-center px-6 text-center overflow-hidden">
+  {/* Background Glow */}
+  <motion.div
+    className="absolute inset-0 bg-gradient-to-b from-primary/15 via-transparent to-transparent"
+    animate={{ opacity: [0.6, 1, 0.6] }}
+    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+  />
 
-        <div className="relative z-10 max-w-4xl">
-          <motion.h1
-            className="text-4xl md:text-7xl font-extrabold leading-tight"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <span className="block">Bal Niketan</span>
+  <div className="relative z-10 max-w-5xl">
+    
 
-            <span className="block bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
-              Sr. Sec. School
-            </span>
+    {/* Heading */}
+    <motion.h1
+      className="text-4xl md:text-7xl font-extrabold leading-tight pt-20 md:pt-10"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+    >
+      <span className="block">Bal Niketan</span>
 
-            {/* Known as */}
-            <span className="block text-lg md:text-2xl mt-3 text-primary font-medium">
-              (Known as Garh School)
-            </span>
+      <span className="block bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
+        Sr. Sec. School
+      </span>
 
-            <span className="block text-lg md:text-xl mt-2 text-muted-foreground">
-              Pilani, Rajasthan
-            </span>
-          </motion.h1>
+      <span className="block text-lg md:text-2xl mt-3 text-primary font-medium">
+        (Known as Garh School)
+      </span>
 
-          <motion.p
-            className="mt-6 text-lg md:text-xl text-muted-foreground"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            Excellence in Education • Innovation • Values
-          </motion.p>
+      <span className="block text-lg md:text-xl mt-2 text-muted-foreground">
+        Pilani, Rajasthan
+      </span>
+    </motion.h1>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            <button className="px-8 py-4 bg-gradient-to-r from-primary to-accent text-white text-center rounded-xl font-semibold shadow-lg flex items-center gap-2">
-              Explore Campus <ArrowRight size={20} />
-            </button>
+    {/* Description */}
+    <motion.p
+      className="mt-8 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.4 }}
+    >
+      Bal Niketan Sr. Sec. School is dedicated to nurturing young minds through
+      academic excellence, modern learning methods, and strong moral values.
+      We focus on the overall development of students to prepare them for a
+      successful future.
+    </motion.p>
 
-            <button className="px-8 py-4 border-2 border-primary text-primary rounded-xl font-semibold hover:bg-primary/10 transition">
-              Admission Details
-            </button>
-          </motion.div>
-        </div>
-      </section>
+    {/* Buttons */}
+    <motion.div
+      className="flex flex-col sm:flex-row gap-5 justify-center mt-12"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.6 }}
+    >
+      <button className="px-10 py-4 bg-gradient-to-r from-primary to-accent text-white rounded-xl font-semibold shadow-xl flex items-center justify-center gap-2 hover:scale-105 transition">
+        Explore Campus
+        <ArrowRight size={20} />
+      </button>
+
+      <button className="px-10 py-4 border-2 border-primary text-primary rounded-xl font-semibold hover:bg-primary/10 transition flex items-center justify-center">
+        Admission Details
+      </button>
+    </motion.div>
+  </div>
+</section>
 
       {/* Features Section */}
       <FeatureSection />
@@ -473,7 +481,7 @@ function AchievementsSection() {
   return (
     <section className="py-32 px-6 ">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-6xl font-bold text-center mb-20">
+        <h2 className="md:text-6xl text-3xl font-bold text-center mb-20">
           Our Achievements
         </h2>
 
@@ -506,43 +514,123 @@ function AchievementsSection() {
 
 function AlumniSection() {
   const alumni = [
-    { name: "Rohit Sharma", role: "IAS", img: "/alumni1.jpg" },
-    { name: "Priya Verma", role: "Google Engineer", img: "/alumni2.jpg" },
-    { name: "Aman Gupta", role: "Entrepreneur", img: "/alumni3.jpg" },
-    { name: "Neha Singh", role: "Doctor", img: "/alumni4.jpg" },
+    { name: "Rohit Sharma", role: "IAS Officer" },
+    { name: "Priya Verma", role: "Google Engineer" },
+    { name: "Aman Gupta", role: "Entrepreneur" },
+    { name: "Neha Singh", role: "Doctor" },
+    { name: "Vikas Mehta", role: "IPS Officer" },
+    { name: "Kavita Joshi", role: "Professor" },
+    { name: "Rahul Jain", role: "Startup Founder" },
+    { name: "Sneha Kapoor", role: "Chartered Accountant" },
+    { name: "Arjun Yadav", role: "Software Architect" },
+    { name: "Pooja Sharma", role: "Bank Manager" },
   ];
 
-  return (
-    <section className="py-24 overflow-hidden bg-gradient-to-r from-primary/5 to-accent/5">
-      <h2 className="text-4xl font-bold text-center mb-12">Our Proud Alumni</h2>
+  const scrollRef = useRef(null);
+  const autoScrollRef = useRef(null);
 
-      <motion.div
-        className="flex gap-6"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+  // Auto scroll
+  useEffect(() => {
+    startAutoScroll();
+    return () => stopAutoScroll();
+  }, []);
+
+  const startAutoScroll = () => {
+    stopAutoScroll();
+    autoScrollRef.current = setInterval(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollBy({
+          left: 300,
+          behavior: "smooth",
+        });
+      }
+    }, 2500);
+  };
+
+  const stopAutoScroll = () => {
+    if (autoScrollRef.current) {
+      clearInterval(autoScrollRef.current);
+    }
+  };
+
+  const handlePrev = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: -300,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handleNext = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: 300,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  return (
+    <section className="relative py-24 bg-gradient-to-r from-primary/5 to-accent/5 overflow-hidden">
+      
+      {/* Heading */}
+      <div className="text-center mb-14">
+        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
+          Our Proud Alumni
+        </h2>
+        <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          Students of Bal Niketan (Garh School) are serving the nation and
+          excelling globally in various fields.
+        </p>
+      </div>
+
+      {/* Controls */}
+      <div className="flex justify-center gap-6 mb-10">
+        <button
+          onClick={handlePrev}
+          className="p-3 rounded-full bg-white shadow-md hover:scale-110 transition"
+        >
+          <ArrowLeft />
+        </button>
+        <button
+          onClick={handleNext}
+          className="p-3 rounded-full bg-white shadow-md hover:scale-110 transition"
+        >
+          <ArrowRight />
+        </button>
+      </div>
+
+      {/* Slider */}
+      <div
+        ref={scrollRef}
+        onMouseEnter={stopAutoScroll}
+        onMouseLeave={startAutoScroll}
+        className="flex gap-8 overflow-x-auto scroll-smooth px-6 scrollbar-hide"
       >
-        {[...alumni, ...alumni].map((a, i) => (
-          <div
+        {alumni.map((a, i) => (
+          <motion.div
             key={i}
-            className="min-w-[260px] p-6 bg-white rounded-2xl shadow-lg text-center"
+            whileHover={{ scale: 1.07 }}
+            className="min-w-[260px] p-8 bg-white rounded-3xl  text-center border border-primary/10  transition-all"
           >
-            <div className="relative w-28 h-28 mx-auto mb-6 rounded-full overflow-hidden border-4 border-primary/30 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-              {" "}
-              <span className="text-2xl font-bold text-primary">
-                {" "}
-                {a.name
-                  .split(" ")
-                  .map((word) => word[0])
-                  .slice(0, 2)
-                  .join("")
-                  .toUpperCase()}{" "}
-              </span>{" "}
+            {/* Avatar */}
+            <div className="w-24 h-24 mx-auto mb-5 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white text-xl font-bold">
+              {a.name
+                .split(" ")
+                .map((word) => word[0])
+                .slice(0, 2)
+                .join("")
+                .toUpperCase()}
             </div>
-            <h3 className="font-semibold">{a.name}</h3>
-            <p className="text-sm text-muted-foreground">{a.role}</p>
-          </div>
+
+            <h3 className="font-semibold text-lg">{a.name}</h3>
+            <p className="text-sm text-muted-foreground mt-1">
+              {a.role}
+            </p>
+          </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
