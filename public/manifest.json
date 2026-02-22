@@ -1,0 +1,27 @@
+{
+  "name": "Bal Niketan School",
+  "short_name": "BalNiketan",
+  "description": "Official Website of Bal Niketan School",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/android.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/window.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/ios.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
