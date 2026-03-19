@@ -1,12 +1,31 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
-import ThreeDBackground from '@/components/ThreeDBackground';
 import {
-  ArrowRight, BookOpen, Users, Zap, Target,
-  Trophy, Medal, Star, Award, ArrowLeft, ChevronLeft, ChevronRight,
-  GraduationCap, MapPin, Phone, Mail
+  motion,
+  useScroll,
+  useTransform,
+  useInView,
+  AnimatePresence,
+} from "framer-motion";
+import ThreeDBackground from "@/components/ThreeDBackground";
+import {
+  ArrowRight,
+  BookOpen,
+  Users,
+  Zap,
+  Target,
+  Trophy,
+  Medal,
+  Star,
+  Award,
+  ArrowLeft,
+  ChevronLeft,
+  ChevronRight,
+  GraduationCap,
+  MapPin,
+  Phone,
+  Mail,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -25,19 +44,24 @@ function HeroBanner() {
   const [isAnimating, setIsAnimating] = useState(false);
   const timerRef = useRef(null);
 
-  const goTo = useCallback((index) => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setCurrent((index + bannerImages.length) % bannerImages.length);
-    setTimeout(() => setIsAnimating(false), 700);
-  }, [isAnimating]);
+  const goTo = useCallback(
+    (index) => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setCurrent((index + bannerImages.length) % bannerImages.length);
+      setTimeout(() => setIsAnimating(false), 700);
+    },
+    [isAnimating],
+  );
 
   const next = useCallback(() => goTo(current + 1), [current, goTo]);
   const prev = useCallback(() => goTo(current - 1), [current, goTo]);
 
   useEffect(() => {
     timerRef.current = setInterval(next, 5000);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
   }, [next]);
 
   return (
@@ -77,17 +101,28 @@ function HeroBanner() {
           {/* Tag */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/80 text-sm font-medium mb-6">
             <MapPin size={14} className="text-amber-400" />
-           Garh  School, Pilani
+            Garh School, Pilani
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] tracking-tight mb-2" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
+          <h1
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] tracking-tight mb-2"
+            style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+          >
             Bal Niketan
           </h1>
-          <h2 className="text-3xl md:text-5xl font-bold mb-2" style={{ background: "linear-gradient(135deg, #f59e0b, #fbbf24, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          <h2
+            className="text-3xl md:text-5xl font-bold mb-2"
+            style={{
+              background: "linear-gradient(135deg, #f59e0b, #fbbf24, #f97316)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             Sr. Sec. School
           </h2>
           <p className="text-white/60 text-lg md:text-xl font-light mb-8 max-w-xl leading-relaxed">
-            Shaping young minds with academic excellence, innovation, and values — <em>Known as Garh School</em>
+            Shaping young minds with academic excellence, innovation, and values
+            — <em>Known as Garh School</em>
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -95,10 +130,15 @@ function HeroBanner() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               className="group flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-[#0a0f1e] text-base shadow-2xl transition-all"
-              style={{ background: "linear-gradient(135deg, #f59e0b, #f97316)" }}
+              style={{
+                background: "linear-gradient(135deg, #f59e0b, #f97316)",
+              }}
             >
               Explore Campus
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.04 }}
@@ -112,7 +152,10 @@ function HeroBanner() {
 
         {/* Slide Controls */}
         <div className="flex items-center gap-4 mt-12">
-          <button onClick={prev} className="p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition">
+          <button
+            onClick={prev}
+            className="p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition"
+          >
             <ChevronLeft size={20} />
           </button>
           <div className="flex gap-2">
@@ -124,7 +167,10 @@ function HeroBanner() {
               />
             ))}
           </div>
-          <button onClick={next} className="p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition">
+          <button
+            onClick={next}
+            className="p-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition"
+          >
             <ChevronRight size={20} />
           </button>
         </div>
@@ -146,7 +192,15 @@ function HeroBanner() {
 // ─── MARQUEE STRIP ────────────────────────────────────────────────────────────
 
 function MarqueeStrip() {
-  const items = ["Academic Excellence", "Modern Classrooms", "Expert Faculty", "Holistic Development", "Sports & Arts", "RBSE Affiliated", "Co-Education School"];
+  const items = [
+    "Academic Excellence",
+    "Modern Classrooms",
+    "Expert Faculty",
+    "Holistic Development",
+    "Sports & Arts",
+    "RBSE Affiliated",
+    "Co-Education School",
+  ];
   return (
     <div className="overflow-hidden bg-gradient-to-r from-amber-500 to-orange-500 py-3 relative">
       <motion.div
@@ -155,7 +209,10 @@ function MarqueeStrip() {
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
       >
         {[...items, ...items].map((item, i) => (
-          <span key={i} className="text-[#0a0f1e] font-bold text-sm tracking-widest uppercase flex items-center gap-4">
+          <span
+            key={i}
+            className="text-[#0a0f1e] font-bold text-sm tracking-widest uppercase flex items-center gap-4"
+          >
             {item}
             <span className="text-[#0a0f1e]/40">✦</span>
           </span>
@@ -169,10 +226,34 @@ function MarqueeStrip() {
 
 function FeatureSection() {
   const features = [
-    { icon: BookOpen, title: "World-Class Education", description: "Comprehensive RBSE curriculum blended with modern pedagogical methods and digital tools.", color: "#3b82f6" },
-    { icon: Users, title: "Expert Faculty", description: "Highly qualified and dedicated educators with a passion for student achievement.", color: "#8b5cf6" },
-    { icon: Zap, title: "Innovation First", description: "Smart boards, computer labs, and tech-integrated classrooms across all grades.", color: "#f59e0b" },
-    { icon: Target, title: "Holistic Growth", description: "Equal focus on academics, sports, arts, and moral development for every child.", color: "#10b981" },
+    {
+      icon: BookOpen,
+      title: "World-Class Education",
+      description:
+        "Comprehensive RBSE curriculum blended with modern pedagogical methods and digital tools.",
+      color: "#3b82f6",
+    },
+    {
+      icon: Users,
+      title: "Expert Faculty",
+      description:
+        "Highly qualified and dedicated educators with a passion for student achievement.",
+      color: "#8b5cf6",
+    },
+    {
+      icon: Zap,
+      title: "Innovation First",
+      description:
+        "Smart boards, computer labs, and tech-integrated classrooms across all grades.",
+      color: "#f59e0b",
+    },
+    {
+      icon: Target,
+      title: "Holistic Growth",
+      description:
+        "Equal focus on academics, sports, arts, and moral development for every child.",
+      color: "#10b981",
+    },
   ];
 
   const ref = useRef(null);
@@ -187,12 +268,15 @@ function FeatureSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-secondary font-semibold uppercase tracking-widest text-sm mb-3">Why Choose Us</p>
-          <h2 className="text-4xl md:text-6xl font-black text-primary leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-secondary font-semibold uppercase tracking-widest text-sm mb-3">
+            Why Choose Us
+          </p>
+          <h2
+            className="text-4xl md:text-6xl font-black text-primary leading-tight"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
             A School That <br />
-            <span >
-              Truly Cares
-            </span>
+            <span>Truly Cares</span>
           </h2>
         </motion.div>
 
@@ -215,12 +299,17 @@ function FeatureSection() {
                 />
                 <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
-                  style={{ background: `${f.color}22`, border: `1px solid ${f.color}44` }}
+                  style={{
+                    background: `${f.color}22`,
+                    border: `1px solid ${f.color}44`,
+                  }}
                 >
                   <Icon size={22} style={{ color: f.color }} />
                 </div>
                 <h3 className="text-black font-bold text-lg mb-2">{f.title}</h3>
-                <p className="text-gray-700 text-sm leading-relaxed">{f.description}</p>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {f.description}
+                </p>
               </motion.div>
             );
           })}
@@ -247,19 +336,36 @@ function AboutSection() {
           transition={{ duration: 0.9 }}
         >
           <div className="relative rounded-3xl overflow-hidden row-span-2">
-            <Image src="/ban1.jpeg" alt="School" fill className="object-cover" />
+            <Image
+              src="/ban1.jpeg"
+              alt="School"
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="relative rounded-3xl overflow-hidden">
-            <Image src="/ban2.jpeg" alt="Students" fill className="object-cover" />
+            <Image
+              src="/ban2.jpeg"
+              alt="Students"
+              fill
+              className="object-cover"
+            />
           </div>
           <div className="relative rounded-3xl overflow-hidden">
-            <Image src="/ban3.jpeg" alt="Campus" fill className="object-cover" />
+            <Image
+              src="/ban3.jpeg"
+              alt="Campus"
+              fill
+              className="object-cover"
+            />
           </div>
 
           {/* Floating badge */}
           <motion.div
             className="absolute -bottom-6 -right-6 p-5 rounded-2xl backdrop-blur-xl border border-white/10 text-center"
-            style={{ background: "linear-gradient(135deg, #f59e0b22, #f9731622)" }}
+            style={{
+              background: "linear-gradient(135deg, #f59e0b22, #f9731622)",
+            }}
             animate={{ y: [0, -8, 0] }}
             transition={{ repeat: Infinity, duration: 4 }}
           >
@@ -274,21 +380,42 @@ function AboutSection() {
           animate={inView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.9, delay: 0.2 }}
         >
-          <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-4">Our Story</p>
-          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-4">
+            Our Story
+          </p>
+          <h2
+            className="text-4xl md:text-5xl font-black text-white leading-tight mb-6"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
             Building Futures <br /> Since 1999
           </h2>
           <p className="text-white/60 leading-relaxed mb-5 text-base">
-            Bal Niketan Sr. Sec. School — affectionately known as <strong className="text-white">Garh School</strong> — stands as a beacon of quality education in the heart of Pilani, Rajasthan. For over two decades, we have nurtured thousands of students into confident, capable, and compassionate individuals.
+            Bal Niketan Sr. Sec. School — affectionately known as{" "}
+            <strong className="text-white">Garh School</strong> — stands as a
+            beacon of quality education in the heart of Pilani, Rajasthan. For
+            over two decades, we have nurtured thousands of students into
+            confident, capable, and compassionate individuals.
           </p>
           <p className="text-white/60 leading-relaxed mb-10 text-base">
-            Our holistic philosophy balances rigorous academics with character-building activities, ensuring every child is equipped for the challenges and opportunities of tomorrow's world.
+            Our holistic philosophy balances rigorous academics with
+            character-building activities, ensuring every child is equipped for
+            the challenges and opportunities of tomorrow's world.
           </p>
 
           <div className="flex flex-wrap gap-4 mb-10">
-            {[["2000+", "Students"], ["150+", "Faculty"], ["95%", "Pass Rate"], ["50+", "Awards"]].map(([num, label]) => (
-              <div key={label} className="flex flex-col items-center px-6 py-4 rounded-2xl border border-white/10 bg-white/4">
-                <span className="text-2xl font-black text-amber-400">{num}</span>
+            {[
+              ["2000+", "Students"],
+              ["150+", "Faculty"],
+              ["95%", "Pass Rate"],
+              ["50+", "Awards"],
+            ].map(([num, label]) => (
+              <div
+                key={label}
+                className="flex flex-col items-center px-6 py-4 rounded-2xl border border-white/10 bg-white/4"
+              >
+                <span className="text-2xl font-black text-amber-400">
+                  {num}
+                </span>
                 <span className="text-white/50 text-xs mt-0.5">{label}</span>
               </div>
             ))}
@@ -301,7 +428,10 @@ function AboutSection() {
             style={{ background: "linear-gradient(135deg, #f59e0b, #f97316)" }}
           >
             Read Our Full Story
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </motion.button>
         </motion.div>
       </div>
@@ -313,10 +443,26 @@ function AboutSection() {
 
 function FacilitiesSection() {
   const facilities = [
-    { title: "Smart Classrooms", description: "Interactive whiteboards and digital tools in every class", img: "/ban4.jpeg" },
-    { title: "Science Labs", description: "Modern Physics, Chemistry and Biology laboratories", img: "/ban5.jpeg" },
-    { title: "Library", description: "10,000+ books with digital reading resources", img: "/ban1.jpeg" },
-    { title: "Sports Complex", description: "Multi-sport ground, courts, and fitness center", img: "/ban2.jpeg" },
+    {
+      title: "Smart Classrooms",
+      description: "Interactive whiteboards and digital tools in every class",
+      img: "/ban4.jpeg",
+    },
+    {
+      title: "Science Labs",
+      description: "Modern Physics, Chemistry and Biology laboratories",
+      img: "/ban5.jpeg",
+    },
+    {
+      title: "Library",
+      description: "10,000+ books with digital reading resources",
+      img: "/ban1.jpeg",
+    },
+    {
+      title: "Sports Complex",
+      description: "Multi-sport ground, courts, and fitness center",
+      img: "/ban2.jpeg",
+    },
   ];
 
   const ref = useRef(null);
@@ -331,9 +477,23 @@ function FacilitiesSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-3">Infrastructure</p>
-          <h2 className="text-4xl md:text-6xl font-black text-black" style={{ fontFamily: "'Playfair Display', serif" }}>
-            World-Class <span style={{ background: "linear-gradient(135deg, #f59e0b, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Facilities</span>
+          <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-3">
+            Infrastructure
+          </p>
+          <h2
+            className="text-4xl md:text-6xl font-black text-black"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            World-Class{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg, #f59e0b, #f97316)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Facilities
+            </span>
           </h2>
         </motion.div>
 
@@ -346,11 +506,18 @@ function FacilitiesSection() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className="group relative rounded-3xl overflow-hidden border border-white/8 cursor-default h-72"
             >
-              <Image src={f.img} alt={f.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <Image
+                src={f.img}
+                alt={f.title}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e] via-[#0a0f1e]/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-white font-bold text-lg mb-1">{f.title}</h3>
-                <p className="text-white/60 text-sm leading-snug">{f.description}</p>
+                <p className="text-white/60 text-sm leading-snug">
+                  {f.description}
+                </p>
               </div>
             </motion.div>
           ))}
@@ -374,15 +541,43 @@ function AchievementsSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 px-6 md:px-12 relative overflow-hidden bg-[#0a0f1e]">
+    <section
+      ref={ref}
+      className="py-28 px-6 md:px-12 relative overflow-hidden bg-[#0a0f1e]"
+    >
       {/* BG decoration */}
-      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle at 30% 50%, #f59e0b 0%, transparent 60%), radial-gradient(circle at 70% 50%, #8b5cf6 0%, transparent 60%)" }} />
+      <div
+        className="absolute inset-0 opacity-5"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 30% 50%, #f59e0b 0%, transparent 60%), radial-gradient(circle at 70% 50%, #8b5cf6 0%, transparent 60%)",
+        }}
+      />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div className="text-center mb-16" initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.7 }}>
-          <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-3">Track Record</p>
-          <h2 className="text-4xl md:text-6xl font-black text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
-            Our <span style={{ background: "linear-gradient(135deg, #f59e0b, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Achievements</span>
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-3">
+            Track Record
+          </p>
+          <h2
+            className="text-4xl md:text-6xl font-black text-white"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            Our{" "}
+            <span
+              style={{
+                background: "linear-gradient(135deg, #f59e0b, #f97316)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Achievements
+            </span>
           </h2>
         </motion.div>
 
@@ -400,15 +595,22 @@ function AchievementsSection() {
               >
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-                  style={{ background: `radial-gradient(circle at center, ${item.color}, transparent 70%)` }}
+                  style={{
+                    background: `radial-gradient(circle at center, ${item.color}, transparent 70%)`,
+                  }}
                 />
                 <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"
-                  style={{ background: `${item.color}18`, border: `1px solid ${item.color}33` }}
+                  style={{
+                    background: `${item.color}18`,
+                    border: `1px solid ${item.color}33`,
+                  }}
                 >
                   <Icon size={28} style={{ color: item.color }} />
                 </div>
-                <h3 className="text-5xl font-black text-white mb-2">{item.value}</h3>
+                <h3 className="text-5xl font-black text-white mb-2">
+                  {item.value}
+                </h3>
                 <p className="text-white/50 text-sm">{item.title}</p>
               </motion.div>
             );
@@ -423,89 +625,181 @@ function AchievementsSection() {
 
 function AlumniSection() {
   const alumni = [
-    { name: "Rohit Sharma", role: "IAS Officer", batch: "2005" },
-    { name: "Priya Verma", role: "Google Engineer", batch: "2008" },
-    { name: "Aman Gupta", role: "Entrepreneur", batch: "2010" },
-    { name: "Neha Singh", role: "MBBS Doctor", batch: "2007" },
-    { name: "Vikas Mehta", role: "IPS Officer", batch: "2003" },
-    { name: "Kavita Joshi", role: "Professor", batch: "2006" },
-    { name: "Rahul Jain", role: "Startup Founder", batch: "2012" },
-    { name: "Sneha Kapoor", role: "Chartered Accountant", batch: "2009" },
-    { name: "Arjun Yadav", role: "Software Architect", batch: "2011" },
-    { name: "Pooja Sharma", role: "Bank Manager", batch: "2004" },
+    {
+      name: "Anamika",
+      role: "Sub Inspector, SSB",
+      image: "/anamika.png",
+      desc: "Serving as a Sub Inspector in SSB, known for dedication, discipline, and commitment to national security.",
+      color: "#f59e0b",
+      bg: "#fff7ed",
+    },
+    {
+      name: "Babu Lal Verma",
+      role: "Additional Chief Engineer",
+      image: "/babulalVerma.jpeg",
+      desc: "An experienced engineer contributing to large-scale infrastructure projects with strong technical leadership.",
+      color: "#8b5cf6",
+      bg: "#f5f3ff",
+    },
+    {
+      name: "Hemant",
+      role: "Assistant Professor",
+      image: "/hemant.png",
+      desc: "Passionate educator focused on guiding students and advancing academic excellence in his field.",
+      color: "#10b981",
+      bg: "#ecfdf5",
+    },
+    {
+      name: "Matu Ram Verma",
+      role: "World-Famous Sculptor",
+      image: "/MatuRamVerma.jpeg",
+      desc: "Renowned sculptor recognized globally for exceptional artistic creations.",
+      color: "#3b82f6",
+      bg: "#eff6ff",
+    },
+    {
+      name: "Vinod",
+      role: "Chairman & Director",
+      image: "/vinod.png",
+      desc: "Visionary leader driving strategic growth and success.",
+      color: "#f97316",
+      bg: "#fff7ed",
+    },
+    {
+      name: "Naresh",
+      role: "Additional Commissioner",
+      image: "/naresh.jpeg",
+      desc: "Senior government official managing customs operations with integrity.",
+      color: "#ec4899",
+      bg: "#fdf2f8",
+    },
   ];
 
-  const colors = ["#f59e0b", "#8b5cf6", "#10b981", "#3b82f6", "#f97316", "#ec4899", "#06b6d4", "#84cc16", "#6366f1", "#f59e0b"];
- const scrollRef = useRef(null);
-const timerRef = useRef(null);
+  const [active, setActive] = useState(0);
 
-  const startScroll = () => {
-    timerRef.current = setInterval(() => {
-      if (scrollRef.current) scrollRef.current.scrollBy({ left: 310, behavior: "smooth" });
-    }, 2500);
-  };
-  const stopScroll = () => { if (timerRef.current) clearInterval(timerRef.current); };
+  const next = () => setActive((prev) => (prev + 1) % alumni.length);
+  const prev = () =>
+    setActive((prev) => (prev - 1 + alumni.length) % alumni.length);
 
-  useEffect(() => { startScroll(); return stopScroll; }, []);
+  useEffect(() => {
+    const timer = setInterval(next, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
+  const a = alumni[active];
 
   return (
-    <section ref={ref} className="py-28 ">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <motion.div
-          className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-        >
-          <div>
-            <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-3">Success Stories</p>
-            <h2 className="text-4xl md:text-5xl font-black text-primary" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Our Proud <span style={{ background: "linear-gradient(135deg, #f59e0b, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Alumni</span>
-            </h2>
-          </div>
-          <div className="flex gap-3">
-            <button onClick={() => scrollRef.current?.scrollBy({ left: -310, behavior: "smooth" })} className="p-3 rounded-2xl border ">
-              <ChevronLeft size={20} />
-            </button>
-            <button onClick={() => scrollRef.current?.scrollBy({ left: 310, behavior: "smooth" })} className="p-3 rounded-2xl border">
-              <ChevronRight size={20} />
-            </button>
-          </div>
-        </motion.div>
-      </div>
+    <section className="py-28 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+      <div className="max-w-4xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-14">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-500 mb-3">
+            Success Stories
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900">
+            Our Proud Alumni
+          </h2>
+        </div>
 
-      <div
-        ref={scrollRef}
-        onMouseEnter={stopScroll}
-        onMouseLeave={startScroll}
-        className="flex gap-5 overflow-x-auto scroll-smooth px-6 md:px-12 scrollbar-hide"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        {alumni.map((a, i) => (
+        {/* Card */}
+        <div className="relative">
           <motion.div
-            key={i}
-            whileHover={{ scale: 1.04, y: -4 }}
-            className="min-w-[240px] p-6 rounded-3xl border  backdrop-blur-sm flex-shrink-0"
+            key={active}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col md:flex-row rounded-3xl overflow-hidden border border-gray-100 shadow-2xl backdrop-blur-xl bg-white/80"
           >
+            {/* LEFT IMAGE */}
             <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center text-white text-xl font-black mb-5"
-              style={{ background: `linear-gradient(135deg, ${colors[i % colors.length]}44, ${colors[i % colors.length]}22)`, border: `1px solid ${colors[i % colors.length]}44` }}
+              className="md:w-64 flex items-center justify-center py-10 relative"
+              style={{ background: a.bg }}
             >
-              {a.name.split(" ").map(w => w[0]).slice(0, 2).join("")}
+              {/* Glow */}
+              <div
+                className="absolute w-40 h-40 rounded-full blur-2xl opacity-20"
+                style={{ background: a.color }}
+              />
+
+              <div
+                className="relative w-28 h-28 rounded-full overflow-hidden border-4 shadow-lg"
+                style={{ borderColor: a.color }}
+              >
+                <Image
+                  src={a.image}
+                  alt={a.name}
+                  fill
+                  className="object-top"
+                />
+              </div>
             </div>
-            <h3 className="text-black font-bold text-base">{a.name}</h3>
-            <p className="text-amber-400 text-sm font-medium mt-0.5">{a.role}</p>
-            <p className="text-white/30 text-xs mt-2">Batch of {a.batch}</p>
+
+            {/* RIGHT CONTENT */}
+            <div className="flex-1 px-8 py-10">
+              {/* Role */}
+              <span
+                className="inline-block text-xs font-semibold uppercase tracking-widest px-4 py-1 rounded-full mb-5"
+                style={{ background: a.bg, color: a.color }}
+              >
+                {a.role}
+              </span>
+
+              {/* Name */}
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                {a.name}
+              </h3>
+
+              {/* Divider */}
+              <div className="w-10 h-[3px] rounded-full bg-amber-500 mb-5" />
+
+              {/* Quote */}
+              <p className="text-gray-600 leading-relaxed text-[15px] italic">
+                “{a.desc}”
+              </p>
+            </div>
           </motion.div>
-        ))}
+
+          {/* Arrows */}
+          <button
+            onClick={prev}
+            className="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 transition"
+          >
+            ‹
+          </button>
+
+          <button
+            onClick={next}
+            className="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 transition"
+          >
+            ›
+          </button>
+        </div>
+
+        {/* Thumbnails */}
+        <div className="flex justify-center gap-3 mt-10 flex-wrap">
+          {alumni.map((th, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className={`relative w-12 h-12 rounded-full overflow-hidden border-2 transition-all ${
+                i === active
+                  ? "scale-110 border-amber-500"
+                  : "opacity-50 border-transparent hover:opacity-80"
+              }`}
+            >
+              <Image
+                src={th.image}
+                alt={th.name}
+                fill
+                className="object-top"
+              />
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-
 // ─── CTA SECTION ──────────────────────────────────────────────────────────────
 
 function CTASection() {
@@ -513,10 +807,16 @@ function CTASection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-28 px-6 md:px-12 bg-[#0a0f1e] relative overflow-hidden">
+    <section
+      ref={ref}
+      className="py-28 px-6 md:px-12 bg-[#0a0f1e] relative overflow-hidden"
+    >
       <div
         className="absolute inset-0 opacity-30"
-        style={{ backgroundImage: "radial-gradient(circle at 50% 50%, #f59e0b44 0%, transparent 70%)" }}
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 50% 50%, #f59e0b44 0%, transparent 70%)",
+        }}
       />
       <motion.div
         className="max-w-4xl mx-auto text-center relative z-10"
@@ -524,15 +824,27 @@ function CTASection() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
       >
-        <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-4">Join Us</p>
-        <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
+        <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-4">
+          Join Us
+        </p>
+        <h2
+          className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight"
+          style={{ fontFamily: "'Playfair Display', serif" }}
+        >
           Ready to Shape <br />
-          <span style={{ background: "linear-gradient(135deg, #f59e0b, #f97316)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+          <span
+            style={{
+              background: "linear-gradient(135deg, #f59e0b, #f97316)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
             Your Future?
           </span>
         </h2>
         <p className="text-white/50 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-          Admissions open for 2025–26. Take the first step toward an exceptional journey at Bal Niketan Sr. Sec. School, Pilani.
+          Admissions open for 2025–26. Take the first step toward an exceptional
+          journey at Bal Niketan Sr. Sec. School, Pilani.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
           <motion.button
@@ -542,7 +854,10 @@ function CTASection() {
             style={{ background: "linear-gradient(135deg, #f59e0b, #f97316)" }}
           >
             Apply for Admission
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            <ArrowRight
+              size={18}
+              className="group-hover:translate-x-1 transition-transform"
+            />
           </motion.button>
           <motion.button
             whileHover={{ scale: 1.04 }}
@@ -560,7 +875,10 @@ function CTASection() {
             { icon: Phone, text: "+91 98765 43210" },
             { icon: Mail, text: "info@garschool.edu.in" },
           ].map(({ icon: Icon, text }) => (
-            <div key={text} className="flex items-center gap-2 text-white/40 text-sm">
+            <div
+              key={text}
+              className="flex items-center gap-2 text-white/40 text-sm"
+            >
               <Icon size={14} className="text-amber-400" />
               {text}
             </div>
@@ -576,7 +894,7 @@ function CTASection() {
 export default function Home() {
   return (
     <main className="pt-20">
-    <ThreeDBackground/>
+      <ThreeDBackground />
       <HeroBanner />
       <MarqueeStrip />
       <FeatureSection />

@@ -88,7 +88,7 @@ export default function RootLayout({ children }) {
       <body className="font-sans antialiased bg-background text-foreground">
         <Navbar />
         {children}
-        <InstallPWAButton />
+        {/* <InstallPWAButton /> */}
         <Footer />
       </body>
     </html>
