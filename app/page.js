@@ -531,87 +531,98 @@ function FacilitiesSection() {
 
 function AchievementsSection() {
   const achievements = [
-    { title: "Board Results", value: "98%", icon: Trophy, color: "#f59e0b" },
-    { title: "Olympiad Winners", value: "150+", icon: Medal, color: "#8b5cf6" },
-    { title: "Sports Champions", value: "80+", icon: Star, color: "#10b981" },
-    { title: "National Awards", value: "50+", icon: Award, color: "#3b82f6" },
+    {
+      title: "Himanshu Saini",
+      desc: "Gold medal in District Open Athletic Meet (Triple Jump), 2nd in Badminton, Swimming participant.",
+      icon: Trophy,
+    },
+    {
+      title: "Riya Mahich",
+      desc: "3rd position in Spot Drawing Competition at VEBGYOR-2025.",
+      icon: Star,
+    },
+    {
+      title: "Manvi",
+      desc: "2nd in 68th District Roller Skating (U-14), selected for State.",
+      icon: Trophy,
+    },
+    {
+      title: "District Tournament U-11",
+      desc: "Held from 27–30 Sep 2024 for boys & girls.",
+      icon: Star,
+    },
+    {
+      title: "District Tournament U-14",
+      desc: "Held from 18–21 Oct 2024 for boys & girls.",
+      icon: Star,
+    },
+    {
+      title: "Payal Sharma",
+      desc: "Received ₹1,00,000 Indira Priyadarshini Award.",
+      icon: Trophy,
+    },
+    {
+      title: "Yuvraj Singh",
+      desc: "4 Gold, 2 Silver, 1 Bronze in Rajasthan State Quan Ki Do Championship.",
+      icon: Trophy,
+    },
   ];
 
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true });
 
   return (
-    <section
-      ref={ref}
-      className="py-28 px-6 md:px-12 relative overflow-hidden bg-[#0a0f1e]"
-    >
-      {/* BG decoration */}
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 30% 50%, #f59e0b 0%, transparent 60%), radial-gradient(circle at 70% 50%, #8b5cf6 0%, transparent 60%)",
-        }}
-      />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.7 }}
-        >
-          <p className="text-amber-400 font-semibold uppercase tracking-widest text-sm mb-3">
-            Track Record
+    <section ref={ref} className="py-24 px-6 md:px-12 bg-[#0a0f1e] text-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-16">
+          <p className="text-amber-400 uppercase tracking-widest text-sm mb-3">
+            Achievements
           </p>
-          <h2
-            className="text-4xl md:text-6xl font-black text-white"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
+          <h2 className="text-4xl md:text-6xl font-black">
             Our{" "}
-            <span
-              style={{
-                background: "linear-gradient(135deg, #f59e0b, #f97316)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Achievements
+            <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-transparent bg-clip-text">
+              Champions
             </span>
           </h2>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {achievements.map((item, i) => {
             const Icon = item.icon;
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                whileHover={{ y: -10, scale: 1.03 }}
-                className="relative group p-8 rounded-3xl border border-white/8 bg-white/3 text-center overflow-hidden"
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ y: -10 }}
+                className="relative group"
               >
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-                  style={{
-                    background: `radial-gradient(circle at center, ${item.color}, transparent 70%)`,
-                  }}
-                />
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"
-                  style={{
-                    background: `${item.color}18`,
-                    border: `1px solid ${item.color}33`,
-                  }}
-                >
-                  <Icon size={28} style={{ color: item.color }} />
+                {/* Glow Effect */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-amber-400/20 to-orange-500/20 blur-xl opacity-0 group-hover:opacity-100 transition duration-500" />
+
+                {/* Card */}
+                <div className="relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl h-full transition-all duration-300 group-hover:border-amber-400/40">
+                  {/* Icon */}
+                  <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 mb-4">
+                    <Icon size={22} className="text-black" />
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-amber-400 transition">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-white/60 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+
+                  {/* Bottom Line Animation */}
+                  <div className="mt-4 h-[2px] w-0 bg-gradient-to-r from-amber-400 to-orange-500 group-hover:w-full transition-all duration-500" />
                 </div>
-                <h3 className="text-5xl font-black text-white mb-2">
-                  {item.value}
-                </h3>
-                <p className="text-white/50 text-sm">{item.title}</p>
               </motion.div>
             );
           })}
@@ -725,12 +736,7 @@ function AlumniSection() {
                 className="relative w-28 h-28 rounded-full overflow-hidden border-4 shadow-lg"
                 style={{ borderColor: a.color }}
               >
-                <Image
-                  src={a.image}
-                  alt={a.name}
-                  fill
-                  className="object-top"
-                />
+                <Image src={a.image} alt={a.name} fill className="object-top" />
               </div>
             </div>
 
@@ -787,12 +793,7 @@ function AlumniSection() {
                   : "opacity-50 border-transparent hover:opacity-80"
               }`}
             >
-              <Image
-                src={th.image}
-                alt={th.name}
-                fill
-                className="object-top"
-              />
+              <Image src={th.image} alt={th.name} fill className="object-top" />
             </button>
           ))}
         </div>
