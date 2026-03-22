@@ -57,12 +57,12 @@ function ContactSection() {
     {
       icon: Phone,
       title: 'Phone',
-      content: '+91 9166416666',
+      content: '+91 8619598125',
     },
     {
       icon: Mail,
       title: 'Email',
-      content: 'info@balniketanpilani.edu.in',
+      content: 'bnssschoolpilani@gmail.com',
     },
   ];
 

@@ -145,7 +145,7 @@ function HeroBanner() {
               whileTap={{ scale: 0.96 }}
               className="flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-white text-base border border-white/30 backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all"
             >
-              Admission 2025
+              Admission 2026
             </motion.button>
           </div>
         </motion.div>
@@ -873,8 +873,8 @@ function CTASection() {
         <div className="flex flex-wrap justify-center gap-8 mt-14 pt-10 border-t border-white/10">
           {[
             { icon: MapPin, text: "Pilani, Rajasthan 333031" },
-            { icon: Phone, text: "+91 98765 43210" },
-            { icon: Mail, text: "info@garschool.edu.in" },
+            { icon: Phone, text: "+91 8619598125" },
+            { icon: Mail, text: "bnssschoolpilani@gmail.com" },
           ].map(({ icon: Icon, text }) => (
             <div
               key={text}

@@ -46,11 +46,11 @@ export default function Footer() {
     },
     {
       icon: Phone,
-      text: '+91 9166416666',
+      text: '+91 8619598125',
     },
     {
       icon: Mail,
-      text: 'info@balniketanpilani.edu.in',
+      text: 'bnssschoolpilani@gmail.com',
     },
   ];
 
