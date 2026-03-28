@@ -55,7 +55,7 @@ export default function Faculty() {
       {/* Department Filter and Faculty Cards */}
       <FacultyCardsSection />
 
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = "hhttps://www.balniketan.ind.in/"; // 🔴 replace with your domain
+  const baseUrl = "hhttps://www.balniketan.ind.in"; // 🔴 replace with your domain
 
   return [
     {
