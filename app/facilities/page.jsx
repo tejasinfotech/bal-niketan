@@ -6,112 +6,100 @@ import Footer from '@/components/Footer';
 import Image from 'next/image';
 
 export default function Facilities() {
-  const facilities = [
-    {
-      title: "IT Skill Development Lab",
-      image: "/SmartClassrooms.jpg",
-      description:
-        "Advanced IT lab for practical learning including programming and modern technologies.",
-      features: [
-        "Programming Classes (AI/ML)",
-        "Hands-on Practice",
-        "Modern Systems",
-        "Digital Learning",
-      ],
-    },
-    {
-      title: "Science Laboratories",
-      image: "/lab.jpg",
-      description:
-        "Well-equipped Physics and Chemistry labs for practical experiments and concept clarity.",
-      features: [
-        "Physics Lab",
-        "Chemistry Lab",
-        "Safe Environment",
-        "Practical Learning",
-      ],
-    },
-    {
-      title: "Smart Classes & Coaching",
-      image: "/SmartClassrooms.jpg",
-      description:
-        "Smart classrooms with digital tools along with coaching support for science students.",
-      features: [
-        "Smart Boards",
-        "Science Coaching",
-        "Interactive Learning",
-        "Doubt Sessions",
-      ],
-    },
-    {
-      title: "Sports & Activities",
-      image: "/sport.jpg",
-      description:
-        "Focus on physical development through sports, games, and fun activities.",
-      features: [
-        "Sports & Games",
-        "Fun Activities",
-        "Scout & Guide",
-        "Skill Fest Participation",
-      ],
-    },
-    {
-      title: "Student Development",
-      image: "/Auditorium.jpg",
-      description:
-        "Co-curricular and skill-based programs for overall student growth.",
-      features: [
-        "Parlor Training",
-        "Stitching Classes",
-        "Co-Curricular Activities",
-        "Skill Development",
-      ],
-    },
-    {
-      title: "School Facilities & Support",
-      image: "/Auditorium.jpg",
-      description:
-        "Safe and supportive environment with regular parent-teacher interaction.",
-      features: [
-        "CCTV Security",
-        "PTM After Exams",
-        "Merit Scholarship",
-        "Student Guidance",
-      ],
-    },
-  ];
+const facilities = [
+  {
+    title: "IT Skill Development Lab",
+    image: "/SmartClassrooms.jpeg",
+    description:
+      "Advanced IT lab for practical learning including programming and modern technologies.",
+    features: [
+      "Programming Classes (AI/ML)",
+      "Hands-on Practice",
+      "Modern Systems",
+      "Digital Learning",
+    ],
+  },
+  {
+    title: "Sports & Activities",
+    image: "/sportEvent.jpeg",
+    description:
+      "Focus on physical development through sports, games, and fun activities.",
+    features: [
+      "Sports & Games",
+      "Fun Activities",
+      "Scout & Guide",
+      "Skill Fest Participation",
+    ],
+  },
 
+  // 🔥 NEW ADDED FROM YOUR GALLERY
+
+  {
+    title: "Creative Art & Painting",
+    image: "/paint.jpeg",
+    description:
+      "Encouraging creativity and imagination through painting and artistic activities.",
+    features: [
+      "Drawing Classes",
+      "Color Activities",
+      "Art Competitions",
+      "Creative Learning",
+    ],
+  },
+  {
+    title: "Dance & Cultural Activities",
+    image: "/dance.jpeg",
+    description:
+      "Promoting confidence and expression through dance and cultural programs.",
+    features: [
+      "Dance Classes",
+      "Stage Performances",
+      "Annual Functions",
+      "Cultural Events",
+    ],
+  },
+  {
+    title: "Kids Play Area",
+    image: "/swing.jpeg",
+    description:
+      "Safe and joyful play area designed for fun and physical activity.",
+    features: [
+      "Swings & Slides",
+      "Outdoor Play",
+      "Safe Equipment",
+      "Fun Environment",
+    ],
+  },
+  {
+    title: "Horse Riding Activity",
+    image: "/hourse.jpeg",
+    description:
+      "Adventure activity to build confidence, balance, and courage in students.",
+    features: [
+      "Outdoor Training",
+      "Confidence Building",
+      "Guided Activity",
+      "Physical Development",
+    ],
+  },
+  {
+    title: "Experienced Faculty",
+    image: "/teacher.jpeg",
+    description:
+      "Highly qualified and dedicated teachers focused on student success.",
+    features: [
+      "Expert Teachers",
+      "Student Guidance",
+      "Personal Attention",
+      "Strong Mentorship",
+    ],
+  },
+];
   return (
-    <main className="relative overflow-hidden ">
+    <main className="relative overflow-hidden mt-20 ">
 
 
-      {/* ================= Hero Video Section ================= */}
-      <section className="relative h-[90vh] flex items-center justify-center mt-20">
-        {/* Background Video */}
-        <video
-          src="/video.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-
-        {/* Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 text-center px-4 max-w-4xl"
-        >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            World-Class <span className="text-primary">Facilities</span>
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300">
-            Modern infrastructure designed for academic excellence and holistic development.
-          </p>
-        </motion.div>
-      </section>
+   
 
       {/* ================= Facilities Section ================= */}
       <section className="py-20 px-4 bg-[#0a0f1e] text-white">
